@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         let registerButton = UIAlertAction(title: "등록", style: .default, handler: { [weak self] _ in
             guard let title = alert.textFields?[0].text else { return }
             let task = Task(title: title, done: false)
+            self?.tableView.setEditing(false, animated: true)
             self?.tasks.append(task)
             self?.tableView.reloadData()
         })
