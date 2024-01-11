@@ -13,6 +13,9 @@
 		001E1A2E2B4D2B96001A5646 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001E1A2C2B4D2B96001A5646 /* Main.storyboard */; };
 		001E1A302B4D2B97001A5646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001E1A2F2B4D2B97001A5646 /* Assets.xcassets */; };
 		001E1A332B4D2B97001A5646 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001E1A312B4D2B97001A5646 /* LaunchScreen.storyboard */; };
+		001E1A3B2B4D2DF2001A5646 /* RemoteProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E1A3A2B4D2DF2001A5646 /* RemoteProduct.swift */; };
+		001E1A3E2B4D2E13001A5646 /* Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 001E1A3C2B4D2E13001A5646 /* Example.xcdatamodeld */; };
+		001E1A402B4D3995001A5646 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E1A3F2B4D3995001A5646 /* WishListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		001E1A2F2B4D2B97001A5646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		001E1A322B4D2B97001A5646 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		001E1A342B4D2B97001A5646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		001E1A3A2B4D2DF2001A5646 /* RemoteProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProduct.swift; sourceTree = "<group>"; };
+		001E1A3D2B4D2E13001A5646 /* Example\.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Example\\.xcdatamodel"; sourceTree = "<group>"; };
+		001E1A3F2B4D3995001A5646 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,13 @@
 				001E1A262B4D2B96001A5646 /* AppDelegate.swift */,
 				001E1A282B4D2B96001A5646 /* SceneDelegate.swift */,
 				001E1A2A2B4D2B96001A5646 /* ViewController.swift */,
+				001E1A3F2B4D3995001A5646 /* WishListViewController.swift */,
+				001E1A3A2B4D2DF2001A5646 /* RemoteProduct.swift */,
 				001E1A2C2B4D2B96001A5646 /* Main.storyboard */,
 				001E1A2F2B4D2B97001A5646 /* Assets.xcassets */,
 				001E1A312B4D2B97001A5646 /* LaunchScreen.storyboard */,
 				001E1A342B4D2B97001A5646 /* Info.plist */,
+				001E1A3C2B4D2E13001A5646 /* Example.xcdatamodeld */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -139,8 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				001E1A2B2B4D2B96001A5646 /* ViewController.swift in Sources */,
+				001E1A402B4D3995001A5646 /* WishListViewController.swift in Sources */,
 				001E1A272B4D2B96001A5646 /* AppDelegate.swift in Sources */,
 				001E1A292B4D2B96001A5646 /* SceneDelegate.swift in Sources */,
+				001E1A3E2B4D2E13001A5646 /* Example.xcdatamodeld in Sources */,
+				001E1A3B2B4D2DF2001A5646 /* RemoteProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +373,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		001E1A3C2B4D2E13001A5646 /* Example.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				001E1A3D2B4D2E13001A5646 /* Example\.xcdatamodel */,
+			);
+			currentVersion = 001E1A3D2B4D2E13001A5646 /* Example\.xcdatamodel */;
+			path = Example.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 001E1A1B2B4D2B96001A5646 /* Project object */;
 }
