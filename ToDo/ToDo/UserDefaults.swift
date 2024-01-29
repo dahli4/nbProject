@@ -12,7 +12,7 @@ class TaskMange {
         userDefaults.setValue(data, forKey: "tasks")
     }
     
-    func loadTasks() -> [Task]{
+    func loadTasks() -> [Task] {
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "tasks") as? [[String: Any]] else { return [] }
         return data.compactMap{
