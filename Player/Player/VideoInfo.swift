@@ -6,3 +6,9 @@
 //
 
 import Foundation
+struct VideoInfo: Decodable {
+    let id: String
+    let title: String
+    let thumbnailUrl: URL
+    let videoUrl: URL
+}

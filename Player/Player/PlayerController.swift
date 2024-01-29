@@ -9,13 +9,14 @@
 
 import AVKit
 
-class AvPlayerController: AVPlayerViewController {
-    func playVideo(from videoURL: URL) {
+class PlayerController: AVPlayerViewController {
+    func playVideo(videoURL: URL) {
         let player = AVPlayer(url: videoURL)
         self.player = player
-        
-        self.present(self, animated: true) {
-            player.play()
+        if let currentViewController = UIApplication.shared.keyWindow?.rootViewController {
+            currentViewController.present(self, animated: true) {
+                player.play()
+            }
         }
     }
 }
