@@ -64,7 +64,7 @@ extension ViewController: UITableViewDataSource {
         return true
     }
 }
-    
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var task = self.tasks[indexPath.row]
