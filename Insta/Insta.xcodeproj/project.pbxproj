@@ -14,6 +14,10 @@
 		001FBED12B67895D001CDCE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001FBED02B67895D001CDCE5 /* Assets.xcassets */; };
 		001FBED42B67895D001CDCE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001FBED22B67895D001CDCE5 /* LaunchScreen.storyboard */; };
 		001FBEDC2B67BBF0001CDCE5 /* ProfileDesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001FBEDB2B67BBF0001CDCE5 /* ProfileDesignViewController.swift */; };
+		001FBEDF2B69E09E001CDCE5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 001FBEDE2B69E09E001CDCE5 /* SnapKit */; };
+		001FBEE12B69E09E001CDCE5 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 001FBEE02B69E09E001CDCE5 /* SnapKit-Dynamic */; };
+		001FBEE32B6A218E001CDCE5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001FBEE22B6A218E001CDCE5 /* CollectionViewCell.swift */; };
+		001FBEE52B6A3EA5001CDCE5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001FBEE42B6A3EA5001CDCE5 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,8 @@
 		001FBED32B67895D001CDCE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		001FBED52B67895D001CDCE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001FBEDB2B67BBF0001CDCE5 /* ProfileDesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDesignViewController.swift; sourceTree = "<group>"; };
+		001FBEE22B6A218E001CDCE5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		001FBEE42B6A3EA5001CDCE5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001FBEDF2B69E09E001CDCE5 /* SnapKit in Frameworks */,
+				001FBEE12B69E09E001CDCE5 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +69,9 @@
 				001FBEC42B67895C001CDCE5 /* AppDelegate.swift */,
 				001FBEC62B67895C001CDCE5 /* SceneDelegate.swift */,
 				001FBEC82B67895C001CDCE5 /* ViewController.swift */,
+				001FBEE42B6A3EA5001CDCE5 /* TabBarController.swift */,
 				001FBEDB2B67BBF0001CDCE5 /* ProfileDesignViewController.swift */,
+				001FBEE22B6A218E001CDCE5 /* CollectionViewCell.swift */,
 				001FBED02B67895D001CDCE5 /* Assets.xcassets */,
 				001FBED22B67895D001CDCE5 /* LaunchScreen.storyboard */,
 				001FBED52B67895D001CDCE5 /* Info.plist */,
@@ -86,6 +96,10 @@
 			dependencies = (
 			);
 			name = Insta;
+			packageProductDependencies = (
+				001FBEDE2B69E09E001CDCE5 /* SnapKit */,
+				001FBEE02B69E09E001CDCE5 /* SnapKit-Dynamic */,
+			);
 			productName = Insta;
 			productReference = 001FBEC12B67895C001CDCE5 /* Insta.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 001FBEB82B67895C001CDCE5;
+			packageReferences = (
+				001FBEDD2B69E09E001CDCE5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 001FBEC22B67895C001CDCE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,6 +159,8 @@
 			files = (
 				001FBEC92B67895C001CDCE5 /* ViewController.swift in Sources */,
 				001FBECF2B67895C001CDCE5 /* Insta.xcdatamodeld in Sources */,
+				001FBEE32B6A218E001CDCE5 /* CollectionViewCell.swift in Sources */,
+				001FBEE52B6A3EA5001CDCE5 /* TabBarController.swift in Sources */,
 				001FBEC52B67895C001CDCE5 /* AppDelegate.swift in Sources */,
 				001FBEC72B67895C001CDCE5 /* SceneDelegate.swift in Sources */,
 				001FBEDC2B67BBF0001CDCE5 /* ProfileDesignViewController.swift in Sources */,
@@ -355,6 +374,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		001FBEDD2B69E09E001CDCE5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		001FBEDE2B69E09E001CDCE5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 001FBEDD2B69E09E001CDCE5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		001FBEE02B69E09E001CDCE5 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 001FBEDD2B69E09E001CDCE5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		001FBECD2B67895C001CDCE5 /* Insta.xcdatamodeld */ = {

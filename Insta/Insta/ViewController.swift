@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -17,9 +17,11 @@ class ViewController: UIViewController {
     
     lazy var goButton: UIButton = {
         let goButton = UIButton(type: .system)
-        goButton.setTitle("ProfileDesignViewController", for: .normal)
         goButton.addTarget(self, action: #selector(goButtonTapped), for: .touchUpInside)
         goButton.translatesAutoresizingMaskIntoConstraints = false
+        if let image = UIImage(named: "Ellipse 1") {
+            goButton.setBackgroundImage(image, for: .normal)
+        }
         return goButton
     }()
     
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
             goButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
-
+    
     @objc func goButtonTapped() {
         let profileDesignViewController = ProfileDesignViewController()
         present(profileDesignViewController, animated: true, completion: nil)

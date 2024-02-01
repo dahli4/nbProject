@@ -9,29 +9,47 @@ import Foundation
 import UIKit
 import SwiftUI
 
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ProfileDesignViewController
-    
-    func makeUIViewController(context: Context) -> ProfileDesignViewController {
-        return ProfileDesignViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: ProfileDesignViewController, context: Context) {
-    }
+#Preview{
+    ProfileDesignViewController()
 }
 
-@available(iOS 13.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-        ViewControllerRepresentable()
+class ProfileDesignViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    let tabBar = TabBarController()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
     }
-}
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
+        cell.cellImage.image = UIImage(named: "picture \(indexPath.item + 1)")
+        return cell
+    }
 
-class ProfileDesignViewController: UIViewController {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (collectionView.bounds.width - 4) / 3
+        let cellHeight = cellWidth
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 2
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUi()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
     
     let userFollowInfo: UIStackView = {
@@ -40,25 +58,25 @@ class ProfileDesignViewController: UIViewController {
         userFollowInfo.axis = .horizontal
         userFollowInfo.distribution = .equalCentering
         userFollowInfo.alignment = .center
-         return userFollowInfo
-     }()
+        return userFollowInfo
+    }()
     
     let postStack: UIStackView = {
-       let postStack = UIStackView()
+        let postStack = UIStackView()
         postStack.translatesAutoresizingMaskIntoConstraints = false
         postStack.axis = .vertical
         return postStack
     }()
     
     let followerStack: UIStackView = {
-       let followerStack = UIStackView()
+        let followerStack = UIStackView()
         followerStack.translatesAutoresizingMaskIntoConstraints = false
         followerStack.axis = .vertical
         return followerStack
     }()
     
     let followingStack: UIStackView = {
-       let followingStack = UIStackView()
+        let followingStack = UIStackView()
         followingStack.translatesAutoresizingMaskIntoConstraints = false
         followingStack.axis = .vertical
         return followingStack
@@ -67,6 +85,7 @@ class ProfileDesignViewController: UIViewController {
     let postLabel: UILabel = {
         let postLabel = UILabel()
         postLabel.textAlignment = .center
+        postLabel.font = UIFont.boldSystemFont(ofSize: 16.5)
         postLabel.text = "7"
         return postLabel
     }()
@@ -82,6 +101,7 @@ class ProfileDesignViewController: UIViewController {
     let followerLabel: UILabel = {
         let followerLabel = UILabel()
         followerLabel.textAlignment = .center
+        followerLabel.font = UIFont.boldSystemFont(ofSize: 16.5)
         followerLabel.text = "0"
         return followerLabel
     }()
@@ -97,6 +117,7 @@ class ProfileDesignViewController: UIViewController {
     let followingLabel: UILabel = {
         let followingLabel = UILabel()
         followingLabel.textAlignment = .center
+        followingLabel.font = UIFont.boldSystemFont(ofSize: 16.5)
         followingLabel.text = "0"
         return followingLabel
     }()
@@ -139,7 +160,7 @@ class ProfileDesignViewController: UIViewController {
         let userInfoStack = UIStackView()
         userInfoStack.translatesAutoresizingMaskIntoConstraints = false
         userInfoStack.axis = .vertical
-         return userInfoStack
+        return userInfoStack
     }()
     
     let nameLabel: UILabel = {
@@ -158,7 +179,7 @@ class ProfileDesignViewController: UIViewController {
     
     let linkLabel: UILabel = {
         let linkLabel = UILabel()
-        linkLabel.text = "sparta"
+        linkLabel.text = "sparta.com"
         linkLabel.font = UIFont.systemFont(ofSize: 14)
         return linkLabel
     }()
@@ -214,7 +235,7 @@ class ProfileDesignViewController: UIViewController {
         divideImage.contentMode = .scaleAspectFit
         divideImage.layer.borderWidth = 0.5
         divideImage.layer.borderColor = UIColor(red: 0.859, green: 0.859, blue: 0.859, alpha: 1).cgColor
-
+        
         guard let image = UIImage(named: "Divider") else { return UIImageView() }
         divideImage.image = image
         return divideImage
@@ -238,6 +259,15 @@ class ProfileDesignViewController: UIViewController {
         return sectionImage
     }()
     
+    let profilImage: UIImageView = {
+        let profilImage = UIImageView()
+        profilImage.translatesAutoresizingMaskIntoConstraints = false
+        profilImage.frame = CGRect(x: 0, y: 0, width: 22.5, height: 22.75)
+        profilImage.contentMode = .scaleAspectFit
+        guard let image = UIImage(named: "Profile - Fill") else { return UIImageView() }
+        profilImage.image = image
+        return profilImage
+    }()
     
     func setStack() {
         view.addSubview(userFollowInfo)
@@ -279,20 +309,21 @@ class ProfileDesignViewController: UIViewController {
         view.addSubview(menuImage)
         view.addSubview(spartaImage)
         view.addSubview(divideImage)
+        view.addSubview(collectionView)
         setStack()
-
+        
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        userNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        userNameLabel.widthAnchor.constraint(equalToConstant: 120).isActive = true
         userNameLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         userNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 139).isActive = true
         userNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 54).isActive = true
         
-        userFollowInfo.widthAnchor.constraint(equalToConstant: 204).isActive = true
+        userFollowInfo.widthAnchor.constraint(equalToConstant: 224).isActive = true
         userFollowInfo.heightAnchor.constraint(equalToConstant: 41).isActive = true
         userFollowInfo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 143).isActive = true
         userFollowInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 116).isActive = true
         
-        menuImage.widthAnchor.constraint(equalToConstant: 21).isActive = true
+        menuImage.widthAnchor.constraint(equalToConstant: 41).isActive = true
         menuImage.heightAnchor.constraint(equalToConstant: 17.5).isActive = true
         menuImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 338).isActive = true
         menuImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 58).isActive = true
@@ -302,19 +333,25 @@ class ProfileDesignViewController: UIViewController {
         spartaImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14).isActive = true
         spartaImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 93).isActive = true
         
-        userInfoStack.widthAnchor.constraint(equalToConstant: 345).isActive = true
+        userInfoStack.widthAnchor.constraint(equalToConstant: 365).isActive = true
         userInfoStack.heightAnchor.constraint(equalToConstant: 59).isActive = true
         userInfoStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         userInfoStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 195).isActive = true
-
-        middleBarStack.widthAnchor.constraint(equalToConstant: 345).isActive = true
+        
+        middleBarStack.widthAnchor.constraint(equalToConstant: 365).isActive = true
         middleBarStack.heightAnchor.constraint(equalToConstant: 30).isActive = true
         middleBarStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         middleBarStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 265).isActive = true
         
-        naviBarStack.widthAnchor.constraint(equalToConstant: 376).isActive = true
+        naviBarStack.widthAnchor.constraint(equalToConstant: 395).isActive = true
         naviBarStack.heightAnchor.constraint(equalToConstant: 44).isActive = true
         naviBarStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         naviBarStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 305).isActive = true
+        
+        collectionView.widthAnchor.constraint(equalToConstant: 395).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 380).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 348).isActive = true
+        
     }
 }
