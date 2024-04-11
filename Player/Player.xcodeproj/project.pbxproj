@@ -92,6 +92,8 @@
 			dependencies = (
 			);
 			name = Player;
+			packageProductDependencies = (
+			);
 			productName = Player;
 			productReference = 00DBDBB92B624B820044FB2E /* Player.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +122,8 @@
 				Base,
 			);
 			mainGroup = 00DBDBB02B624B820044FB2E;
+			packageReferences = (
+			);
 			productRefGroup = 00DBDBBA2B624B820044FB2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -296,6 +300,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7H8779959T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Player/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
